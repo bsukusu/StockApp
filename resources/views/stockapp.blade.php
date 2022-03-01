@@ -53,7 +53,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="{{route('stockapp')}}" class="act-link">Anasayfa <i class="fa fa-caret-down"></i></a>
+                                    <a href="{{route('stockapp')}}" class="act-link">Anasayfa </a>
                                   </li>
                                     <li>
                                     <a href="{{route('stores')}}">Mağazalar <i class="fa fa-caret-down"></i></a>
@@ -68,6 +68,9 @@
                                         <li><a href="about.html">About</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                <a href="{{route('contact')}}">İletişim </a>
+                              </li>
                 </div>
             </header>
 
