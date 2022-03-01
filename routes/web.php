@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+  return view('stockapp');
 });
+Route::get('/stockapp',[IndexController::class,'index'])->name('stockapp');
+Route::get('/categories',function(){
+  return view('categories');})->name('categories');
+Route::get('/stores',function(){
+  return view('stores');})->name('stores');
+Route::get('/contact',function(){
+  return view('contact');})->name('contact');
+Route::get('/products',function(){
+  return view('products');})->name('products');
