@@ -122,24 +122,31 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if($errors->any())
+                                    <ul>
+                                      @foreach ($errors->all() as $contactError)
+                                        <li> {{$contactError}} </li>
+                                      @endforeach
+                                    </ul>
+                                  @endif
                                 <div class="col-md-6">
                                     <div class="list-single-main-wrapper fl-wrap">
                                         <div id="contact-form">
                                             <div id="message"></div>
-                                            <form  class="custom-form" action="php/contact.php" name="contactform" id="contactform">
+                                            <form  class="custom-form" action="{{route('contact-create')}}" method="POST" enctype='multipart/form-data'>
                                                 <fieldset>
                                                     <label><i class="fa fa-user-o"></i></label>
-                                                    <input type="text" name="name" id="name" placeholder="Your Name *" value=""/>
+                                                    <input type="text" name="client_name" placeholder="İsminiz: ">
                                                     <div class="clearfix"></div>
                                                     <label><i class="fa fa-envelope-o"></i>  </label>
-                                                    <input type="text"  name="email" id="email" placeholder="Email Address*" value=""/>
-													<div class="clearfix"></div>
-													<label><i class="fa fa-phone"></i>  </label>
-                                                    <input type="text"  name="phone" id="phone" placeholder="Phone *" value=""/>
-                                                    <textarea name="comments"  id="comments" onClick="this.select()" >Message</textarea>
+                                                    <input type="text"  name="client_mail" id="email" placeholder="Email Adres: " >
+													                          <div class="clearfix"></div>
+													                          <label><i class="fa fa-phone"></i>  </label>
+                                                    <input type="text"  name="client_phone" id="phone" placeholder="Telefon numaranız: ">
+                                                    <textarea name="comments" name="message" >Mesajınız: </textarea>
 
                                                 </fieldset>
-                                                <button class="btn  big-btn  color-bg flat-btn" id="submit">Send<i class="fa fa-angle-right"></i></button>
+                                                <button class="btn  big-btn  color-bg flat-btn" type="submit">Gönder<i class="fa fa-angle-right"></i></button>
                                             </form>
                                         </div>
                                         <!-- contact form  end-->
