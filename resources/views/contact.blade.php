@@ -134,6 +134,7 @@
                                         <div id="contact-form">
                                             <div id="message"></div>
                                             <form  class="custom-form" action="{{route('contact-create')}}" method="POST" enctype='multipart/form-data'>
+                                              @csrf
                                                 <fieldset>
                                                     <label><i class="fa fa-user-o"></i></label>
                                                     <input type="text" name="client_name" placeholder="İsminiz: ">
@@ -143,7 +144,7 @@
 													                          <div class="clearfix"></div>
 													                          <label><i class="fa fa-phone"></i>  </label>
                                                     <input type="text"  name="client_phone" id="phone" placeholder="Telefon numaranız: ">
-                                                    <textarea name="comments" name="message" >Mesajınız: </textarea>
+                                                    <textarea name="message" >Mesajınız: </textarea>
 
                                                 </fieldset>
                                                 <button class="btn  big-btn  color-bg flat-btn" type="submit">Gönder<i class="fa fa-angle-right"></i></button>

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use App\Http\Request\ContactRequest;
+use App\Http\Requests\ContactRequest;
 class ContactController extends Controller
 {
 
   public function create()
 {
   $contact = Contact::all();
-  return view('contact', compact('contacts'));
+  return view('contact', compact('contact'));
 }
 public function store(ContactRequest $request)
    {
