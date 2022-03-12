@@ -35,12 +35,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::group(['prefix'=>'admin','middleware'=>'auth','isAdmin'],function(){
+
   Route::get('/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
   Route::get('/profile',[AdminController::class,'profile'])->name('admin.profile');
 });
 
-Route::group(['prefix'=>'user','middleware'=>'auth','isUser'],function(){
+  Route::group(['prefix'=>'user','middleware'=>'auth','isUser'],function(){
   Route::get('/dashboard',[UserController::class,'index'])->name('user.dashboard');
   Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
 });
