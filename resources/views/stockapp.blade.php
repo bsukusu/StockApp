@@ -40,8 +40,6 @@
                         <button class="header-search-button" onclick="window.location.href={{route('categories')}}">Kategori</button>
                     </div>
                     <div class="show-search-button"><i class="fa fa-search"></i> <span>Kategori</span></div>
-
-                    <div class="show-reg-form modal-open"><a href="" class="act-link"></a> Giriş Yap </div>
                     <!-- nav-button-wrap-->
                     <div class="nav-button-wrap color-bg">
                         <div class="nav-button">
@@ -71,6 +69,9 @@
                                 <li>
                                 <a href="{{route('contact')}}">İletişim </a>
                               </li>
+                              <li>
+                              <a href="{{route('login')}}">Giriş Yap </a>
+                            </li>
                 </div>
             </header>
 
