@@ -1,19 +1,20 @@
 <!DOCTYPE HTML>
+<html lang="en">
     <head>
         <!--=============== basic  ===============-->
         <meta charset="UTF-8">
-        <title>StockApp</title>
+        <title>Citybook -Directory Listing Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="robots" content="index, follow"/>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== css  ===============-->
-        <link type="text/css" rel="stylesheet" href="css/reset.css">
-        <link type="text/css" rel="stylesheet" href="css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/reset.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/plugins.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/color.css')}}">
         <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href={{"images/favicon.ico"}}>
     </head>
     <body>
         <!-- loader -->
@@ -148,8 +149,8 @@
                             <!-- profile-edit-wrap -->
                             <div class="profile-edit-wrap">
                                 <div class="profile-edit-page-header">
-                                    <h2>Üye Panel</h2>
-                                    <div class="breadcrumbs"><a href="{{route('stockapp')}}">Anasayfa</a></div>
+                                    <h2>Admin Panel</h2>
+                                    <div class="breadcrumbs"><a href="#">Home</a><span>Dasboard</span></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -157,31 +158,27 @@
                                             <div class="user-profile-menu-wrap fl-wrap">
                                                 <!-- user-profile-menu-->
                                                 <div class="user-profile-menu">
-                                                    <h3>Kullanıcı</h3>
+                                                    <h3>Main</h3>
                                                     <ul>
-                                                        <li><a href=""><i class="fa fa-user-o"></i> Profili Düzenle</a></li>
-                                                        <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> İletişim <span>3</span></a></li>
-                                                        <li><a href=""><i class="fa fa-unlock-alt"></i>Şifreyi değiştir</a></li>
+                                                    	<li><a href="dashboard.html" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
+                                                        <li><a href="dashboard-myprofile.html"><i class="fa fa-user-o"></i> Edit profile</a></li>
+                                                        <li><a href="dashboard-messages.html"><i class="fa fa-envelope-o"></i> Messages <span>3</span></a></li>
+                                                        <li><a href="dashboard-password.html"><i class="fa fa-unlock-alt"></i>Change Password</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- user-profile-menu end-->
                                                 <!-- user-profile-menu-->
                                                 <div class="user-profile-menu">
-                                                    <h3>Mağaza Panel</h3>
+                                                    <h3>Listings</h3>
                                                     <ul>
-                                                        <li><a href=""><i class="fa fa-th-list"></i> Mağaza Yönetim</a></li>
-                                                        <li><a href=""> <i class="fa fa-calendar-check-o"></i> Mağaza oluştur</a></li>
+                                                        <li><a href="dashboard-listing-table.html"><i class="fa fa-th-list"></i> My listigs  </a></li>
+                                                        <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Bookings <span>2</span></a></li>
+                                                        <li><a href="dashboard-review.html"><i class="fa fa-comments-o"></i> Reviews </a></li>
+                                                        <li><a href="dashboard-add-listing.html"><i class="fa fa-plus-square-o"></i> Add New</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- user-profile-menu end-->
-                                                <form method="POST" action="{{ route('logout') }}" class="mb-0">
-                                                    @csrf
-                                                    <li class="nav-item">
-                                                      <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();this.closest('form').submit();">
-                                                        <span>Logout</span>
-                                                      </a>
-                                                    </li>
-                                                  </form>
+                                                <a href="#" class="log-out-btn">Log Out</a>
                                             </div>
                                         </div>
                                     </div>
@@ -189,16 +186,58 @@
                                         <!-- profile-edit-container-->
                                         <div class="profile-edit-container">
                                             <div class="profile-edit-header fl-wrap" style="margin-top:30px">
-                                                <h4>Merhaba, <span>{{ Auth::user()->name}} </span></h4>
+                                                <h4>Helo , <span>Alisa</span></h4>
                                             </div>
                                             <div class="notification success fl-wrap">
+                                                <p>Your listing <a href="#">Fitness Center Brooklyn</a> has been approved!</p>
                                                 <a class="notification-close" href="#"><i class="fa fa-times"></i></a>
                                             </div>
-
+                                                  <!-- statistic-container-->
+                                            <div class="statistic-container fl-wrap">
+                                            <!-- statistic-item-wrap-->
+                                            	<div class="statistic-item-wrap">
+                                            	<div class="statistic-item gradient-bg fl-wrap">
+                                                	<i class="fa fa-map-marker"></i>
+                                                    <div class="statistic-item-numder">21</div>
+                                                    <h5>Active Listings</h5>
+                                                </div>
+                                                </div>
+                                            <!-- statistic-item-wrap end-->
+                                            <!-- statistic-item-wrap-->
+                                            	<div class="statistic-item-wrap">
+                                            	<div class="statistic-item gradient-bg fl-wrap">
+                                                	<i class="fa fa fa-eye"></i>
+                                                    <div class="statistic-item-numder">1054</div>
+                                                    <h5>Listing Views</h5>
+                                                </div>
+                                                </div>
+                                            <!-- statistic-item-wrap end-->
+                                            <!-- statistic-item-wrap-->
+                                            	<div class="statistic-item-wrap">
+                                            	<div class="statistic-item gradient-bg fl-wrap">
+                                                	<i class="fa fa-comments-o"></i>
+                                                    <div class="statistic-item-numder">675</div>
+                                                    <h5>Total Reviews</h5>
+                                                </div>
+                                                </div>
+                                            <!-- statistic-item-wrap end-->
+                                            <!-- statistic-item-wrap-->
+                                            	<div class="statistic-item-wrap">
+                                            	<div class="statistic-item gradient-bg fl-wrap">
+                                                	<i class="fa fa-heart-o"></i>
+                                                    <div class="statistic-item-numder">154</div>
+                                                    <h5>Times Bookmarked</h5>
+                                                </div>
+                                                </div>
+                                            <!-- statistic-item-wrap end-->
+                                            </div>
+         									<!-- statistic-container end-->
+                                        </div>
+                                        <!-- profile-edit-container end-->
 
                                         <div class="dashboard-list-box fl-wrap activities">
                                             <div class="dashboard-header fl-wrap">
-                                                <h3>Bildirimler</h3>
+                                                <h3>Recent Activities</h3>
                                             </div>
                                             <!-- dashboard-list end-->
                                             <div class="dashboard-list">
@@ -211,7 +250,66 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- dashboard-list end-->
+                                            <!-- dashboard-list end-->
+                                            <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
 
+                                                    <div class="dashboard-message-text">
+                                                        <p><i class="fa fa-heart"></i>Someone bookmarked your <a href="#">Event In City Mol</a> listing!</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- dashboard-list end-->
+                                            <!-- dashboard-list end-->
+                                            <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
+
+                                                    <div class="dashboard-message-text">
+                                                        <p><i class="fa fa-comments-o"></i> Someone left a review on <a href="#">Gym in the Center</a> listing!</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- dashboard-list end-->
+                                            <!-- dashboard-list end-->
+                                            <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
+
+                                                    <div class="dashboard-message-text">
+                                                        <p><i class="fa fa-check"></i> Your listing <a href="#">Luxury Restourant</a> has been approved! </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- dashboard-list end-->
+                                            <!-- dashboard-list end-->
+                                            <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
+
+                                                    <div class="dashboard-message-text">
+                                                        <p><i class="fa fa-heart"></i>Someone bookmarked your <a href="#">Event In City Mol</a> listing!</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- dashboard-list end-->
+                                            <!-- dashboard-list end-->
+                                            <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
+
+                                                    <div class="dashboard-message-text">
+                                                        <p><i class="fa fa-comments-o"></i> Someone left a review on <a href="#">Gym in the Center</a> listing!</p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <!-- dashboard-list end-->
                                         </div>
 
@@ -356,9 +454,8 @@
         </div>
         <!-- Main end -->
         <!--=============== scripts  ===============-->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&libraries=places&callback=initAutocomplete"></script>
+        <script type="text/javascript" src={{asset("js/jquery.min.js")}}></script>
+        <script type="text/javascript" src={{asset("js/plugins.js")}}></script>
+        <script type="text/javascript" src={{asset("js/scripts.js")}}></script>
     </body>
 </html>
