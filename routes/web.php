@@ -45,4 +45,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','isAdmin'],function(){
   Route::group(['prefix'=>'user','middleware'=>'auth','isUser'],function(){
   Route::get('/dashboard',[UserController::class,'index'])->name('user.dashboard');
   Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
+  Route::get('/reset/password',function(){return view('reset');})->name('reset');
+  Route::get('/editprofile',function(){return view('user-profile');})->name('user-profile');
 });
