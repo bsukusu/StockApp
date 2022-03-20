@@ -51,7 +51,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                  @auth
+
 
                                   <a href="{{route('stockapp')}}" class="act-link">Anasayfa </a>
                                   </li>
@@ -68,14 +68,14 @@
                                         <li><a href="about.html">About</a></li>
                                     </ul>
                                 </li>
-                              @else
+                              @guest
                                 <li>
                                 <a href="{{route('contact')}}">İletişim </a>
                               </li>
                               <li>
                               <a href="{{route('login')}}">Giriş Yap </a>
                             </li>
-                          @endauth
+                          @endguest
                 </div>
             </header>
 

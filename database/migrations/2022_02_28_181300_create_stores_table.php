@@ -18,7 +18,7 @@ return new class extends Migration
           $table->string('name');
           $table->integer('adress_no');
           $table->integer('product_no');
-          $table->String('image');
+          $table->string('image');
           $table->timestamps();
         });
     }

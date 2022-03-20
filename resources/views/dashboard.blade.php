@@ -44,6 +44,7 @@
                                 <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();this.closest('form').submit();">
                                   <span>Çıkış</span>
                                 </a>
+                              </form>
                         </ul>
                     </div>
 

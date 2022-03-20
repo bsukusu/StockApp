@@ -13,7 +13,7 @@ class UserController extends Controller
       return view('dashboards.users.index');
     }
 
-    public function Admin()
+    public function createAdmin()
     {
         return Auth::id();
     }
