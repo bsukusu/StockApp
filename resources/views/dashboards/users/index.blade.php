@@ -31,15 +31,6 @@
                     <div class="logo-holder">
                         <a href=""><img src="{{asset('images/logo.png')}}" alt=""></a>
                     </div>
-                    <div class="header-search vis-header-search">
-                        <div class="header-search-select-item">
-                            <select data-placeholder="All Categories" class="chosen-select" >
-                                <option>All Categories</option>
-                                <option>Shops</option>
-                            </select>
-                        </div>
-                        <button class="header-search-button" onclick="window.location.href='listing.html'">Search</button>
-                    </div>
                     <div class="header-user-menu">
                         <div class="header-user-name">
                             <span><img src="" alt=""></span> </img>
@@ -55,13 +46,7 @@
                                 </a>
                         </ul>
                     </div>
-                    <!-- nav-button-wrap-->
-                    <div class="nav-button-wrap color-bg">
-                        <div class="nav-button">
-                            <span></span><span></span><span></span>
-                        </div>
-                    </div>
-                    <!-- nav-button-wrap end-->
+
                     <!--  navigation -->
                     <div class="nav-holder main-menu">
                         <nav>
@@ -77,9 +62,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <!-- navigation  end -->
-                </div>
-            </header>
+                    </header>
             <!--  header end -->
             <!-- wrapper -->
             <div id="wrapper">
@@ -105,7 +88,7 @@
                                                     <ul>
                                                     	<li><a href="{{route('user.dashboard')}}" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
                                                         <li><a href="{{route('user-profile')}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
-                                                        <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> Mesaj Bırak <span>3</span></a></li>
+                                                        <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> Mesaj Bırak </a></li>
                                                         <li><a href="{{route('reset')}}"><i class="fa fa-unlock-alt"></i>Şifreyi Değiştir</a></li>
                                                     </ul>
                                                 </div>
@@ -115,7 +98,7 @@
                                                     <h3>Mağazalar</h3>
                                                     <ul>
                                                         <li><a href=""><i class="fa fa-th-list"></i> Mağaza oluştur </a></li>
-                                                        <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Ürünleri Listele <span>2</span></a></li>
+                                                        <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Ürünleri Listele </a></li>
 
                                                     </ul>
                                                 </div>
@@ -139,8 +122,10 @@
                                                     <span class="new-dashboard-item"><i class="fa fa-times"></i></span>
 
                                                     <div class="dashboard-message-text">
-                                                        <p><i class="fa fa-check"></i> Your listing <a href="#">Luxury Restourant</a> has been approved! </p>
-
+                                                        <form method="post" action="{{route('admin')}}">
+                                                        @csrf
+                                                        <button class="btn btn-success" type="submit"> <span>Admin ol </span> </button>
+                                                      </form>
                                                     </div>
                                                 </div>
                                             </div>
