@@ -10,7 +10,7 @@ class UserController extends Controller
 {
 
     function index(){
-      return view('dashboards.users.index');
+      return view('dashboard');
     }
 
     public function createAdmin()

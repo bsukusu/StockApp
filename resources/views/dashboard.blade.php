@@ -87,10 +87,10 @@
                                                 <div class="user-profile-menu">
                                                     <h3>Ana menü</h3>
                                                     <ul>
-                                                    	<li><a href="{{route('user.dashboard')}}" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
+                                                    	<li><a href="{{route('dashboard')}}" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
                                                         <li><a href="{{route('user-profile')}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
                                                         <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> Mesaj Bırak </a></li>
-                                                        <li><a href="{{route('reset')}}"><i class="fa fa-unlock-alt"></i>Şifreyi Değiştir</a></li>
+                                                        <li><a href="{{route('password.confirm')}}"><i class="fa fa-unlock-alt"></i>Şifreyi Değiştir</a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- user-profile-menu end-->

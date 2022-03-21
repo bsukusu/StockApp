@@ -51,8 +51,6 @@
                         <nav>
                             <ul>
                                 <li>
-
-
                                   <a href="{{route('stockapp')}}" class="act-link">Anasayfa </a>
                                   </li>
                                     <li>
@@ -61,7 +59,7 @@
                                     <ul>
                                         <li><a href="about.html">About</a></li>
                                     </ul>
-
+                                  </li>
                                     <li>
                                     <a href="{{route('products')}}">Ürünler <i class="fa fa-caret-down"></i></a>
                                     <ul>
@@ -75,7 +73,24 @@
                               <li>
                               <a href="{{route('login')}}">Giriş Yap </a>
                             </li>
+                          @else
+                            <li>
+                            <a href="">Kullanıcı <i class="fa fa-caret-down"></i></a>
+                            <!--second level -->
+                            <ul>
+                                <li><a href="{{route('dashboard')}}">Kullanıcı panel</a></li>
+                                <form method="POST" action="{{ route('logout') }}" class="mb-0">
+                                    @csrf
+                                    <li class="nav-item">
+                                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();this.closest('form').submit();">
+                                        <span>Çıkış yap</span>
+                                    </a>
+                                  </li>
+                                </form>
+                              </ul>
+                            </li>
                           @endguest
+                </nav>
                 </div>
             </header>
 

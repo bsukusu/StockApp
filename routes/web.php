@@ -33,8 +33,8 @@ Route::get("/contact/create",[ContactController::class,'create'])->name('create'
 Route::post("/contact",[ContactController::class,'store'])->name('contact-create');
 
   Route::group(['prefix'=>'user'],function(){
-  Route::get('/dashboard',[UserController::class,'index'])->name('user.dashboard');
-  Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
+  Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
+  Route::get('/profile',[UserController::class,'profile'])->name('profile');
   Route::get('/editprofile',function(){return view('user-profile');})->name('user-profile');
   Route::post('profile/admin',[UserController::class,'createAdmin'])->name('admin');
 
