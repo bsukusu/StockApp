@@ -130,7 +130,12 @@
                             <div class="profile-edit-wrap">
                               @auth
                                 <div class="profile-edit-page-header">
+<<<<<<< HEAD
                                     <div class="breadcrumbs"><a href="{{route('stockapp')}}">Anasayfa</a><a href="{{route('dashboard')}}">Dasboard</a><span>İletişim</span></div>
+=======
+                                    <h2>Şifreyi Değiştir</h2>
+                                    <div class="breadcrumbs"><a href="{{route('stockapp')}}">Anasayfa</a><a href="{{route('dashboard')}}">Dasboard</a><span>Change Password</span></div>
+>>>>>>> 3a4d6c6ea153bfcdf63650beb5ea479a244675be
                                 </div>
                               @endauth
                                 <div class="row">
