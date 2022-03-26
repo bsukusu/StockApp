@@ -73,6 +73,9 @@
                               <li>
                               <a href="{{route('login')}}">Giriş Yap </a>
                             </li>
+                            <li>
+                            <a href="{{route('register')}}">Kayıt Ol </a>
+                          </li>
                           @else
                             <li>
                             <a href="">Kullanıcı <i class="fa fa-caret-down"></i></a>
@@ -140,7 +143,7 @@
 
 
                             </div>
-                                                  </div>
+                        </div>
                     </section>
                     <!-- section end -->
                     <!--section -->
