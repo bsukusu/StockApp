@@ -16,10 +16,18 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
           $table->id();
           $table->string('name');
-          $table->integer('adress_no');
-          $table->integer('product_no');
+          $table->string('email');
+          $table->string('phone');
           $table->string('image');
+          $table->unsignedBigInteger('category_id');
+          $table->string('adress');
+          $table->string('aboutus');
           $table->timestamps();
+
+          $table->foreign('category_id')
+               ->references('id')
+               ->on('categories')
+               ->onDelete('cascade');
         });
     }
 

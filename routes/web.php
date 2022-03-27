@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UpdateController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -34,6 +35,9 @@ Route::post("/contact",[ContactController::class,'store'])->name('contact-create
 
   Route::group(['prefix'=>'user'],function(){
   Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
-  Route::get('/profile',function(){ return view('edit-profile');})->name('edit-profile');
+  Route::get('/profile/{user}/edit',[UpdateController::class,'edit'])->name('update');
+  Route::put('profile/{user}',[UpdateController::class,'update'])->name('update-profile');
+  Route::get("/stores/create",[UserController::class,'store'])->name('create');
+  Route::post("/stores",[UserController::class,'create'])->name('store-create');
   Route::post('profile/admin',[UserController::class,'createAdmin'])->name('admin');
 });

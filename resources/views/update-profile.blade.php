@@ -170,19 +170,18 @@
                                             <div class="profile-edit-header fl-wrap">
                                                 <h4>Hesap Bilgilerim</h4>
                                             </div>
-                                            <form method="post" action="" class="custom-form">
+                                            <form method="post" action="{{route('update-profile',[$user->id])}}" class="custom-form">
+                                              @put
                                                 <label> isminiz <i class="fa fa-user-o"></i></label>
-                                                <input type="text" placeholder="AlisaNoory" value=""/>
-                                                <label>Email Address<i class="fa fa-envelope-o"></i>  </label>
-                                                <input type="text" placeholder="AlisaNoory@domain.com" value=""/>
-                                                <label>Phone<i class="fa fa-phone"></i>  </label>
-                                                <input type="text" placeholder="+7(123)987654" value=""/>
-                                                <label> Adress <i class="fa fa-map-marker"></i>  </label>
-                                                <input type="text" placeholder="USA 27TH Brooklyn NY" value=""/>
-                                                <label> Website <i class="fa fa-globe"></i>  </label>
-                                                <input type="text" placeholder="themeforest.net" value=""/>
-                                                <label> Notes</label>
-                                                <textarea cols="40" rows="3" placeholder="About Me"></textarea>
+                                                <input type="text" name="name"  value="{{old('name',$user->name)}}">
+                                                <label>Email Adres<i class="fa fa-envelope-o"></i>  </label>
+                                                <input type="text" name="email" value="{{old('email',$user->email)}}">
+                                                <label>Telefon<i class="fa fa-phone"></i>  </label>
+                                                <input type="text" name="phone" value="{{old('phone'),$user->phone}}">
+                                                <label>Resminiz<i class="fa-solid fa-image"></i>> </label>
+                                                <input type="file" name="image" value="{{old('image'),$user->image}}">
+                                                <button type="submit" href=""> Güncelle</button>
+                                              </form>
                                             </div>
                                         </div>
 

@@ -37,7 +37,7 @@
                              {{auth()->user()->name}}
                         </div>
                         <ul>
-                            <li><a href="{{route('edit-profile')}}"> Profili güncelle</a></li>
+                            <li><a href="{{route('update', $user->id)}}"> Profili güncelle</a></li>
                             <form method="POST" action="{{ route('logout') }}" class="mb-0">
                               @csrf
                               <li class="nav-item">
@@ -88,7 +88,7 @@
                                                     <h3>Ana menü</h3>
                                                     <ul>
                                                     	<li><a href="{{route('dashboard')}}" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
-                                                        <li><a href="{{route('edit-profile')}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
+                                                        <li><a href="{{route('update', $user->id)}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
                                                         <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> Mesaj Bırak </a></li>
                                                         <li><a href="{{route('password.confirm')}}"><i class="fa fa-unlock-alt"></i>Şifreyi Değiştir</a></li>
                                                     </ul>

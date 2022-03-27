@@ -29,9 +29,8 @@
             <header class="main-header dark-header fs-header sticky">
                 <div class="header-inner">
                     <div class="logo-holder">
-                        <a href="index.html"><img src="{{asset('images/logo2.png')}}" alt=""></a>
+                        <a href="index.html"><img src="images/logo2.png" alt=""></a>
                     </div>
-                    @auth
                         <div class="header-user-menu">
                           <div class="header-user-name">
                               <span><img src="" alt=""></span> </img>
@@ -48,7 +47,6 @@
                                 </form>
                           </ul>
                     </div>
-                  @endauth
                     <!-- nav-button-wrap-->
                     <div class="nav-button-wrap color-bg">
                         <div class="nav-button">
@@ -98,16 +96,6 @@
                                     <ul>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="contacts.html">Contacts</a></li>
-                                        <li><a href="author-single.html">User single</a></li>
-                                        <li><a href="how-itworks.html">How it Works</a></li>
-                                        <li><a href="pricing-tables.html">Pricing</a></li>
-                                        <li><a href="dashboard-myprofile.html">User Dasboard</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                        <li><a href="dashboard-add-listing.html">Add Listing</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a href="header2.html">Header 2</a></li>
-                                        <li><a href="footer-fixed.html">Footer Fixed</a></li>
                                     </ul>
                                     <!--second level end-->
                                 </li>
@@ -128,20 +116,15 @@
                         <div class="container">
                             <!-- profile-edit-wrap -->
                             <div class="profile-edit-wrap">
-                              @auth
                                 <div class="profile-edit-page-header">
-                                    <div class="breadcrumbs"><a href="{{route('stockapp')}}">Anasayfa</a><a href="{{route('dashboard')}}">Dasboard</a><span>İletişim</span></div>
+                                    <h2> Mağaza oluştur</h2>
+                                    <div class="breadcrumbs"><a href="{{route('stockapp')}}">Anasayfa</a><a href="{{route('dashboard')}}">Dasboard</a><span>Mağaza oluştur</span></div>
                                 </div>
-                              @endauth
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="fixed-bar fl-wrap">
-
                                             <div class="user-profile-menu-wrap fl-wrap">
                                                 <!-- user-profile-menu-->
-                                                @auth
-
-
                                                 <div class="user-profile-menu">
                                                     <h3>Ana menü</h3>
                                                     <ul>
@@ -156,7 +139,7 @@
                                                 <div class="user-profile-menu">
                                                     <h3>Mağazalar</h3>
                                                     <ul>
-                                                        <li><a href=""><i class="fa fa-th-list"></i> Mağaza oluştur </a></li>
+                                                        <li><a href="{{route('store-create')}}"><i class="fa fa-th-list"></i> Mağaza oluştur </a></li>
                                                         <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Ürünleri Listele </a></li>
 
                                                     </ul>
@@ -168,43 +151,47 @@
                                                   @csrf
                                                 <a href="{{route('logout')}}" class="log-out-btn" onclick="event.preventDefault();this.closest('form').submit();">Çıkış Yap</a>
                                               </form>
-                                            @endauth
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-md-7">
                                         <!-- profile-edit-container-->
                                         <div class="profile-edit-container">
                                             <div class="profile-edit-header fl-wrap">
-                                                <h4>İletişim</h4>
+                                                <h4>Mağaza Bigileri</h4>
                                             </div>
-                                            @if($errors->any())
-                                              <ul>
-                                                @foreach ($errors->all() as $contactError)
-                                                  <li> {{$contactError}} </li>
-                                                @endforeach
-                                              </ul>
-                                            @endif
-                                            <form  class="custom-form" action="{{route('contact-create')}}" method="POST" enctype='multipart/form-data'>
+                                            <form class="form-create" action="{{route('create')}}" method="POST" enctype='multipart/form-data'>
                                               @csrf
-                                              <label>İsminiz<i class="fa fa-user-o"></i></label>
-                                                <input type="text" name="client_name" value=""/>
-                                                <label> Size ulaşabileceğimiz mail adresiniz<i class="fa fa-envelope-o"></i>  </label>
-                                                <input type="text" name="client_mail" value=""/>
-                                                <label>Telefon numaranız<i class="fa fa-phone"></i> </label>
-                                                <input type="text" name="client_phone" value=""/>
-                                                <label>Bize mesajınız<i class="	fa fa-comment"></i> </label>
-                                                <textarea name="message" ></textarea>
-                                                <button class="btn  big-btn  color-bg flat-btn" type="submit">Gönder<i class="fa fa-angle-right"></i></button>
+                                                <label> Mağaza ismi <i class="fas fa-store-alt-slash"></i></label>
+                                                <input type="text" name="name"  value="">
+                                                <label>Mağaza email<i class="fa fa-envelope-o"></i>  </label>
+                                                <input type="text" name="email" value="">
+                                                <label>Telefon<i class="fa fa-phone"></i>  </label>
+                                                <input type="text" name="phone" value="">
+                                                <div class="form-check mb-3">
+                                                <div class="mb-3">
+                                                <label>Mağaza resmi<i class="fa-solid fa-image"></i>> </label>
+                                                <input type="file" name="image" class="form-control" aria-label="file example" value="" >
+                                                </div>
+                                                <label>Mağaza türü <i class="fas fa-angle-double-down"></i>  </label>
+                                                <select name="store_id">
+                                                @foreach ($stores as $store)
+                                                <option value="{{$store->id}}" @if (old('store_id') == $store->id) selected="selected" @endif> {{$store->name}}</option>
+                                                @endforeach
+                                                </select>
+                                                <label> Adres <i class="far fa-edit"></i></label>
+                                                <input type="text" name="adress"  value="">
+                                                <label>Hakkımızda<i class="far fa-building"></i>  </label>
+                                                <input type="text" name="aboutus" value="">
+                                                <button type="submit" href=""> Güncelle</button>
+                                            </form>
                                             </div>
                                         </div>
 
                                 </div>
-                              </div>
+                            </div>
                             <!--profile-edit-wrap end -->
                         </div>
-
                         <!--container end -->
                     </section>
                     <!-- section end -->
