@@ -13,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,13 +25,13 @@ class StoreRequest extends FormRequest
     {
       return [
             "name"=>"required|max:50",
-            "email" => "required|email"
-            "phone" => "required|digits_between:10,11"
+            "email" => "required|email",
+            "phone" => "required|integer|digits_between:10,11",
             "image" => "image|nullable|max:2048",
             "image.*" =>"mimes:jpeg,jpg,png",
-            "store_id" => "required|exists:store_kinds,id",
+            "store_id" => "required|exists:categories,id",
             "adress" => "required",
-            "aboutus" => "required",
+            "aboutus" => "required"
           ];
       }
       public function messages()

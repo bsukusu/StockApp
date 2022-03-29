@@ -37,7 +37,7 @@
                                {{auth()->user()->name}}
                           </div>
                           <ul>
-                              <li><a href="{{route('edit-profile')}}"> Profili güncelle</a></li>
+                              <li><a href="{{route('update')}}"> Profili güncelle</a></li>
                               <form method="POST" action="{{ route('logout') }}" class="mb-0">
                                 @csrf
                                 <li class="nav-item">
@@ -96,16 +96,6 @@
                                     <ul>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="contacts.html">Contacts</a></li>
-                                        <li><a href="author-single.html">User single</a></li>
-                                        <li><a href="how-itworks.html">How it Works</a></li>
-                                        <li><a href="pricing-tables.html">Pricing</a></li>
-                                        <li><a href="dashboard-myprofile.html">User Dasboard</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                        <li><a href="dashboard-add-listing.html">Add Listing</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a href="header2.html">Header 2</a></li>
-                                        <li><a href="footer-fixed.html">Footer Fixed</a></li>
                                     </ul>
                                     <!--second level end-->
                                 </li>
@@ -139,7 +129,7 @@
                                                     <h3>Ana menü</h3>
                                                     <ul>
                                                       <li><a href="{{route('dashboard')}}" class="user-profile-act"><i class="fa fa-gears"></i>Dashboard</a></li>
-                                                        <li><a href="{{route('edit-profile')}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
+                                                        <li><a href="{{route('update')}}"><i class="fa fa-user-o"></i> Profili güncelle</a></li>
                                                         <li><a href="{{route('contact')}}"><i class="fa fa-envelope-o"></i> Mesaj Bırak </a></li>
                                                         <li><a href="{{route('password.confirm')}}"><i class="fa fa-unlock-alt"></i>Şifreyi Değiştir</a></li>
                                                     </ul>
@@ -170,17 +160,16 @@
                                             <div class="profile-edit-header fl-wrap">
                                                 <h4>Hesap Bilgilerim</h4>
                                             </div>
-                                            <form method="post" action="{{route('update-profile',[$user->id])}}" class="custom-form">
-                                              @put
+                                            <form method="post" action="{{route('profile-update')}}" enctype="multipart/form-data">
+                                                   {{ method_field('PUT') }}
+                                                   {{ csrf_field() }}
+                                                   @csrf
                                                 <label> isminiz <i class="fa fa-user-o"></i></label>
-                                                <input type="text" name="name"  value="{{old('name',$user->name)}}">
+                                                <input type="text" name="name"  value="{{auth()->user->name}}">
                                                 <label>Email Adres<i class="fa fa-envelope-o"></i>  </label>
-                                                <input type="text" name="email" value="{{old('email',$user->email)}}">
+                                                <input type="text" name="email" value="{{auth()->user->email}}">
                                                 <label>Telefon<i class="fa fa-phone"></i>  </label>
-                                                <input type="text" name="phone" value="{{old('phone'),$user->phone}}">
-                                                <label>Resminiz<i class="fa-solid fa-image"></i>> </label>
-                                                <input type="file" name="image" value="{{old('image'),$user->image}}">
-                                                <button type="submit" href=""> Güncelle</button>
+                                                <input type="text" name="phone" value="{{auth()->user->phone}}">
                                               </form>
                                             </div>
                                         </div>
